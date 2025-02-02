@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>健身训练记录系统</title>
+  <!-- 引入外部样式 -->
+  <link rel="stylesheet" href="style.css">
+  <!-- 引入 Chart.js 库 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- 登录页面 -->
+  <div id="loginView" class="login-container">
+    <h1>欢迎登录健身训练系统</h1>
+    <p>祝您健身愉快</p>
+    <form id="loginForm">
+      <label for="username">用户名</label>
+      <input type="text" id="username" placeholder="请输入用户名" required>
+      <label for="password">密码</label>
+      <input type="password" id="password" placeholder="请输入密码" required>
+      <button type="submit">登录</button>
+    </form>
+    <div id="loginError">用户名或密码错误</div>
+  </div>
+
+  <!-- 主应用页面，初始时隐藏 -->
+  <div id="app" class="hidden">
+    <!-- 顶部切换区域：任务、图表和重置按钮 -->
+    <div class="view-toggle">
+      <button id="btnTaskView">任务</button>
+      <button id="btnChartView">图表</button>
+      <span class="reset-container">
+        <button id="btnReset">重置</button>
+      </span>
+    </div>
+
+    <!-- 任务视图 -->
+    <div id="taskView">
+      <!-- 顶部双层选择区域 -->
+      <div class="select-container">
+        <label for="cycleSelect">选择周期（第 n 周期）： </label>
+        <select id="cycleSelect">
+          <option value="1">第 1 周期</option>
+          <option value="2">第 2 周期</option>
+          <option value="3">第 3 周期</option>
+          <option value="4">第 4 周期</option>
+          <option value="5">第 5 周期</option>
+          <option value="6">第 6 周期</option>
+          <option value="7">第 7 周期</option>
+          <option value="8">第 8 周期</option>
+        </select>
+        &nbsp;&nbsp;
+        <label for="weekSelect">选择该周期内的周： </label>
+        <select id="weekSelect">
+          <option value="1">第一周</option>
+          <option value="2">第二周</option>
+          <option value="3">第三周</option>
+          <option value="4">第四周</option>
+        </select>
+      </div>
+      <hr>
+      <!-- 任务内容区域 -->
+      <div id="scheduleContainer"></div>
+    </div>
+
+    <!-- 图表视图 -->
+    <div id="chartView" class="hidden">
+      <h2>8次重量曲线图</h2>
+      <canvas id="chartCanvas" width="600" height="400"></canvas>
+    </div>
+  </div>
+
+  <!-- 引入外部 JavaScript 文件 -->
+  <script src="app.js"></script>
+</body>
+</html>
